@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-using Newtonsoft.Json;
+using Newtonsoft.Json; // This is gonna come from an external parsing library
 
 namespace VenmoBackend
 {
+
+    // All the main jazz.  Should generally work, if hooked up right. ;)
     public class VenmoWork
     {
-
         public enum USER_TYPE { USER_ID, PHONE, EMAIL };
         public int clientID { get; private set; }
         public string clientSecret { get; private set; }
@@ -91,6 +92,7 @@ namespace VenmoBackend
             return response;
         }
 
+        // JsonConvert stuff comes from the external library
 
         private async Task<string> LogIn(string accessCode)
         {
@@ -112,7 +114,7 @@ namespace VenmoBackend
                 var definition = new { message = "", code = 0 };
                 Dictionary<string, object> message = JsonConvert.DeserializeObject<Dictionary<string, object>>(response);
                 var error = JsonConvert.DeserializeAnonymousType(message["error"].ToString(), definition);
-                throw new VenmoException(error.message);
+                throw new Exception(error.message);
             }
         }
 
@@ -133,6 +135,7 @@ namespace VenmoBackend
 
     }
 
+    // User stuff.  Self explanatory.
     public class VenmoUser
     {
         public int id { get; set; }
