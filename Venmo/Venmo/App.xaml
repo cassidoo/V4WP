@@ -8,41 +8,6 @@
     <!--Application Resources-->
     <Application.Resources>
         <local:LocalizedStrings xmlns:local="clr-namespace:Venmo" x:Key="LocalizedStrings"/>
-        <shell:ApplicationBar x:Key="appPage2" BackgroundColor="#3D95CE">
-            <shell:ApplicationBarIconButton x:Name="sender" IconUri="Assets/Images/feature.email.png" Text="send" Click="Button1_Click"/>
-        </shell:ApplicationBar>
-        <shell:ApplicationBar x:Key="appPage1" BackgroundColor="#3D95CE">
-        </shell:ApplicationBar>
-        <DataTemplate x:Key="AddrBookItemTemplate">
-            <StackPanel VerticalAlignment="Top" Margin="12,0,0,12">
-                <TextBlock FontFamily="{StaticResource PhoneFontFamilyNormal}" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="#000000"  Text="{Binding UserName}" />
-            </StackPanel>
-        </DataTemplate>
-        <DataTemplate x:Key="AddrBookGroupHeaderTemplate">
-            <Border Background="Transparent" Padding="5">
-                <Border Background="{StaticResource PhoneAccentBrush}" BorderBrush="{StaticResource PhoneAccentBrush}" BorderThickness="2" Width="62" 
-         Height="62" Margin="0,0,18,0" HorizontalAlignment="Left">
-                    <TextBlock Text="{Binding Key}" Foreground="{StaticResource PhoneForegroundBrush}" FontSize="48" Padding="6" 
-            FontFamily="{StaticResource PhoneFontFamilySemiLight}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                </Border>
-            </Border>
-        </DataTemplate>
-        <phone:JumpListItemBackgroundConverter x:Key="BackgroundConverter"/>
-        <phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>
-        <Style x:Key="AddrBookJumpListStyle" TargetType="phone:LongListSelector">
-            <Setter Property="GridCellSize"  Value="113,113"/>
-            <Setter Property="LayoutMode" Value="Grid" />
-            <Setter Property="ItemTemplate">
-                <Setter.Value>
-                    <DataTemplate>
-                        <Border Background="{Binding Converter={StaticResource BackgroundConverter}}" Width="113" Height="113" Margin="6" >
-                            <TextBlock Text="{Binding Key}" FontFamily="{StaticResource PhoneFontFamilySemiBold}" FontSize="48" Padding="6" 
-               Foreground="{Binding Converter={StaticResource ForegroundConverter}}" VerticalAlignment="Center"/>
-                        </Border>
-                    </DataTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

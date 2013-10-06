@@ -22,20 +22,29 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="CHOOSE A CONTACT" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#000000"/>
+        <StackPanel Grid.Row="0" Margin="0,17,0,28">
+            <TextBlock Text="CHOOSE CONTACT" Foreground="#000000" Style="{StaticResource PhoneTextNormalStyle}"/>
         </StackPanel>
-
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <phone:LongListSelector x:Name="AddrBook"
-  JumpListStyle="{StaticResource AddrBookJumpListStyle}"
-  Background="Transparent"
-  GroupHeaderTemplate="{StaticResource AddrBookGroupHeaderTemplate}"
-  ItemTemplate="{StaticResource AddrBookItemTemplate}"
-  LayoutMode="List"
-  IsGroupingEnabled="true"
-  HideEmptyGroups ="true"/>
+            <ListBox Name="ContactLst" Margin="-24,0,0,0" SelectionChanged="ContactList_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Button Margin="0,-24,0,0" Width="460" Height="120" Tap="SelectName_Click">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal" Height="80" Width="500" >
+                                    <Image Source="Assets/Images/profile.png" Width="80" Height="80"/>
+                                    <StackPanel Orientation="Vertical" Height="80">
+                                        <StackPanel Orientation="Horizontal" Height="80">
+                                            <TextBlock  Width="400"  Foreground="#000000"  Style="{StaticResource PhoneTextNormalStyle}" FontSize="{StaticResource PhoneFontSizeLarge}" Text="{Binding UserName}" Height="80" Margin="12,15"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
     </Grid>
 

@@ -14,13 +14,24 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
+    
+    <phone:PhoneApplicationPage.Resources>
+        <local:LocalizedStrings xmlns:local="clr-namespace:Venmo" x:Key="LocalizedStrings"/>
+        <shell:ApplicationBar x:Key="appPage2" BackgroundColor="#3D95CE" IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton x:Name="sender" IconUri="Assets/Images/feature.email.png" Text="send" Click="Button1_Click"/>
+        </shell:ApplicationBar>
+        <shell:ApplicationBar x:Key="appPage1" BackgroundColor="#3D95CE">
+        </shell:ApplicationBar>
+
+    </phone:PhoneApplicationPage.Resources>
+    
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="#FFF">
         <Grid Background="#3D95CE" Height="72" VerticalAlignment="top">
             <Image HorizontalAlignment="Left" Height="30" Margin="24,0,0,0" VerticalAlignment="Center" Source="Assets/Images/venmo_logo_white.png"/>
         </Grid>
         <!--Pivot Control-->
-        <phone:Pivot Margin="0,48,0,0" SelectionChanged="myPivot_SelectionChanged">
+        <phone:Pivot x:Name="MainPivot" Margin="0,48,0,0" SelectionChanged="myPivot_SelectionChanged">
             <!--Pivot item one-->
 
             <phone:PivotItem>
@@ -45,7 +56,7 @@
                         </StackPanel>
                     </Grid>
                     <StackPanel VerticalAlignment="Bottom" Margin="0,-40,12,12">
-                        <Button x:Name="T_History" Height="75" FontSize="20" Foreground="#fff" BorderBrush="#3D95CE" Background="#3D95CE">Transaction History</Button>
+                        <Button x:Name="T_History" Height="75" FontSize="20" Foreground="#fff" BorderBrush="#3D95CE" Background="#3D95CE" Tap="TransactionHistory_Tap">Transaction History</Button>
                         <Button x:Name="Pending" Height="75" FontSize="20" Foreground="#fff" BorderBrush="#3D95CE" Background="#3D95CE">Pending Transactions</Button>
                         <Button x:Name="Find_F" Height="75" FontSize="20" Foreground="#fff" BorderBrush="#3D95CE" Background="#3D95CE">Find Friends</Button>
                         <Button x:Name="Invite_F" Height="75" FontSize="20" Foreground="#fff" BorderBrush="#3D95CE" Background="#3D95CE">Invite Friends</Button>
@@ -54,7 +65,7 @@
             </phone:PivotItem>
 
             <!--Pivot item two-->
-            <phone:PivotItem>
+            <phone:PivotItem >
                 <phone:PivotItem.Header>
                     <TextBlock Text="transaction" FontSize="62" Margin="0,12,0,0" Foreground="#000000"/>
                 </phone:PivotItem.Header>
@@ -66,11 +77,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="To:" Style="{StaticResource PhoneTextTitle3Style}" Margin="12,12" VerticalAlignment="Top" Foreground="#000000"/>
-                            <TextBox Margin="-12,-5" Foreground="LightGray" Grid.Column="1" Background="Transparent" BorderThickness="0"  Text="This is a test" VerticalAlignment="Top" />
+                            <TextBox x:Name="RecipientBox" Margin="-12,-5" Foreground="LightGray" Grid.Column="1" Background="Transparent" BorderThickness="0" VerticalAlignment="Top" />
                             <Button HorizontalAlignment="Right" x:Name="addbutton" Height="35" Margin="0,0,-350,0" Click="Button_Click">
                                 <Button.Template>
                                     <ControlTemplate>
-                                        <Image Source="Assets/Images/Cirle_Add.png" HorizontalAlignment="Right"/>
+                                        <Image Source="Assets/Images/Cirle_Add.png" HorizontalAlignment="Right" Height="30"/>
                                     </ControlTemplate>
                                 </Button.Template>
                             </Button>
@@ -83,7 +94,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="Amount:" Style="{StaticResource PhoneTextTitle3Style}" Margin="12,12" VerticalAlignment="Top" Foreground="#000000"/>
-                            <TextBox Margin="62,-331,-86,0" Foreground="LightGray" Grid.Column="1" Background="Transparent" BorderThickness="0"  Text="This is a test" VerticalAlignment="Top" />
+                            <TextBox x:Name="AmountBox" Margin="-12,-5,-86,0" Foreground="LightGray" Grid.Column="1" Background="Transparent" BorderThickness="0"  VerticalAlignment="Top" />
                         </Grid>
                     </Border>
                     <toolkit:ListPicker x:Name="OptionSelector" FontSize="20"  Foreground="#fff" BorderBrush="#3D95CE" Background="#3D95CE"  Width="90" HorizontalAlignment="Right" >
@@ -93,16 +104,7 @@
                 </StackPanel>
             </phone:PivotItem>
         </phone:Pivot>
-        <!--Uncomment to see an alignment grid to help ensure your controls are
-            aligned on common boundaries.  The image has a top margin of -32px to
-            account for the System Tray. Set this to 0 (or remove the margin altogether)
-            if the System Tray is hidden.
-
-            Before shipping remove this XAML and the image itself.-->
-        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" IsHitTestVisible="False" />-->
-
     </Grid>
-
 </phone:PhoneApplicationPage>
     
     
