@@ -14,21 +14,21 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="#FFFFFF">
+    <Grid x:Name="LayoutRoot" Background="#ecf5fa">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        <Image Source="Assets/Images/v.png" VerticalAlignment="Stretch" Margin="12,12,12,12" Grid.RowSpan="2"/>
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="transactions" Foreground="#000000" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="past transactions" FontSize="62" Foreground="#000000" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ListBox Name="TransList" Margin="-24,50,0,0">
+            <ListBox Name="TransList" Margin="-24,50,0,0" SelectionChanged="TransList_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Height="80" Width="400" Margin="12,0,0,12">

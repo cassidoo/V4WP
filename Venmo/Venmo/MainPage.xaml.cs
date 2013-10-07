@@ -25,14 +25,14 @@ namespace Venmo
         /**Custom Application Bar **/
         private void myPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch(((Pivot)sender).SelectedIndex)
+            switch (((Pivot)sender).SelectedIndex)
             {
                 case 0:
-                ApplicationBar=((ApplicationBar)this.Resources["appPage1"]);
-                break;
+                    ApplicationBar = ((ApplicationBar)this.Resources["appPage1"]);
+                    break;
                 case 1:
-                ApplicationBar = ((ApplicationBar)this.Resources["appPage2"]);
-                break;
+                    ApplicationBar = ((ApplicationBar)this.Resources["appPage2"]);
+                    break;
             }
         }
 
@@ -71,13 +71,12 @@ namespace Venmo
 
 
         /** Button Actions **/
-        
         //Add recipient name for transaction
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-                NavigationService.Navigate(
-                    new Uri("/ContactList.xaml", UriKind.Relative));
-            
+            NavigationService.Navigate(
+                new Uri("/ContactList.xaml", UriKind.Relative));
+
         }
 
         private void TransactionHistory_Tap(object sender, System.Windows.Input.GestureEventArgs e)

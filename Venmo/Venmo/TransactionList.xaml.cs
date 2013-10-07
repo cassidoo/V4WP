@@ -23,13 +23,21 @@ namespace Venmo
             List<Transactions> list = new List<Transactions>();
 
             //Generate Hard-Coded Data which will represent transactions
-            list.Add(new Transactions("Fred Murray","Jamie Kay", "Paid", 12.00));
-            list.Add(new Transactions("Martha Denning","Chris Gunner", "Charged", 5.57));
+            list.Add(new Transactions("Fred Murray", "Jamie Kay", "Paid", 12.00));
+            list.Add(new Transactions("Martha Denning", "Chris Gunner", "Charged", 5.57));
 
             this.TransList.ItemsSource = list;
         }
+
+        private void TransList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
+    /**
+     * This class composes transactions that are displayed within the Transaction History page
+     * **/
     public class Transactions
     {
         public string RecipientName
@@ -53,13 +61,13 @@ namespace Venmo
         public Transactions(string sender, string recipientName, string type, double amount)
         {
 
-           
-            this.RecipientName = " $" + amount +" to "+ recipientName;
+
+            this.RecipientName = " $" + amount + " to " + recipientName;
             this.Type = type;
             Message = sender + " " + type + ": ";
-            
-            
-           
+
+
+
         }
     }
 }

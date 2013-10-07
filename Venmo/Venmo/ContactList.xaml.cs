@@ -34,8 +34,8 @@ namespace Venmo
             //Bind contacts with the View
             this.ContactLst.ItemsSource = addrList;
 
-            }
-        
+        }
+
         /** Event Handlers **/
         private void SelectName_Click(object sender, RoutedEventArgs e)
         {
@@ -45,11 +45,11 @@ namespace Venmo
             if (selectedItem != null)
             {
                 string uri = "/MainPage.xaml?Text=" + data.UserName + "&Page=" + 1;
-               
+
                 //This is the name that will be saved
                 NavigationService.Navigate(
                 new Uri(uri, UriKind.Relative));
-                
+
             }
         }
 
@@ -59,32 +59,36 @@ namespace Venmo
             ListBoxItem selectedItem = this.ContactLst.ItemContainerGenerator.ContainerFromIndex(2) as ListBoxItem;
             MessageBox.Show(contactData.UserName);
         }
-            
-        }
-    
-    }
-        public class AddressBook
-        {
-            public string UserName
-            {
-                get;
-                set;
-            }
-
-            public string Profile
-            {
-                get;
-                set;
-            }
-           
-
-            public AddressBook(string UserName)
-            {
-                this.UserName = UserName;
-                this.Profile = "Assets/Images/profile.png";
-                
-              }
-        
- 
 
     }
+
+}
+
+/**
+* This class creates the recipients of transactions
+* **/
+public class AddressBook
+{
+    public string UserName
+    {
+        get;
+        set;
+    }
+
+    public string Profile
+    {
+        get;
+        set;
+    }
+
+
+    public AddressBook(string UserName)
+    {
+        this.UserName = UserName;
+        this.Profile = "Assets/Images/profile.png";
+
+    }
+
+
+
+}

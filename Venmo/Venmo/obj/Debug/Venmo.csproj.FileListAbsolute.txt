@@ -184,3 +184,4 @@ C:\Users\Hannah\Documents\GitHub\V4WP\Venmo\Venmo\obj\Debug\Venmo.pdb
 C:\Users\Hannah\Documents\GitHub\V4WP\Venmo\Venmo\obj\Debug\XapCacheFile.xml
 C:\Users\Hannah\Documents\GitHub\V4WP\Venmo\Venmo\Bin\Debug\Assets\Images\PaymentIcon.png
 C:\Users\Hannah\Documents\GitHub\V4WP\Venmo\Venmo\obj\Debug\TransactionList.g.cs
+C:\Users\Hannah\Documents\GitHub\V4WP\Venmo\Venmo\obj\Debug\Venmo.csprojResolveAssemblyReference.cache
